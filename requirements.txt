@@ -1,0 +1,5 @@
+pandas
+textblob 
+streamlit
+sqlalchemy
+psycopg2-binary
