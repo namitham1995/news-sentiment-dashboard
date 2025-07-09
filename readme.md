@@ -335,13 +335,13 @@ intern1/
 └── README.docx
 📸 Screenshots
 ▶️ Sentiment Distribution
- ![alt text](image-11.png)
+ ![alt text](images/image-11.png)
 ☁️ Word Cloud and Sentiment Line Chart
- ![alt text](image-2.png)
+ ![alt text](images/image-2.png)
 🗞️ News Sentiment Table View
- ![alt text](image-1.png)
+ ![alt text](images/image-1.png)
 📈 Trend & Timestamp Summary
-![alt text](image.png)
+![alt text](images/image.png)
 
 
 ## ✅ Next Improvements  
