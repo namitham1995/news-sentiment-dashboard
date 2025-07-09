@@ -1,41 +1,47 @@
-NEWS SENTIMENT ANALYSIS DASHBOAR
+# NEWS SENTIMENT ANALYSIS DASHBOAR
 
 This is a full-stack, production-ready dashboard that automatically fetches news headlines, analyzes sentiment using NLP, and displays real-time insights through an interactive Streamlit web interface — all containerized and deployed on AWS.
 
-🎯 Project Features
+## 🎯 Project Features
 
-• Fetches live news using NewsAPI
-• Analyzes sentiment (positive / neutral / negative)
-• Stores processed data in AWS RDS (PostgreSQL)
-• Visualizes insights via Streamlit dashboard (ECS-hosted)
-• Uses Docker + ECS + Lambda + EventBridge for automation
+• Fetches live news using NewsAPI  
+• Analyzes sentiment (positive / neutral / negative)  
+• Stores processed data in AWS RDS (PostgreSQL)  
+• Visualizes insights via Streamlit dashboard (ECS-hosted)  
+• Uses Docker + ECS + Lambda + EventBridge for automation  
 
-🧱 Architecture Overview
+## 🧱 Architecture Overview
 
 NewsAPI → Lambda → ECS Task → sentiment.py → PostgreSQL (RDS)
                             ↘ Dockerized → S3 (optional)
 Dashboard: ECS (Streamlit) ← ALB ← app.py ← PostgreSQL
+
  ![alt text](image-3.png)
 
-🧠 Technologies Used
-• Frontend: Streamlit, Plotly
-• Backend: Python, TextBlob
-• Database: PostgreSQL (RDS)
-• Cloud Infra: Docker, ECS Fargate, Lambda, EventBridge, CloudWatch, IAM, S3, VPC
-🛠️ Step-by-Step Implementation Guide
-1. Local Prototype
+## 🧠 Technologies Used
+
+• Frontend: Streamlit, Plotly  
+• Backend: Python, TextBlob  
+• Database: PostgreSQL (RDS)  
+• Cloud Infra: Docker, ECS Fargate, Lambda, EventBridge, CloudWatch, IAM, S3, VPC  
+
+## 🛠️ Step-by-Step Implementation Guide  
+
+### 1. Local Prototype
     Tools Installation:
     • Python 3.9+
     • Docker Desktop (with WSL2 on Windows)
     • Required Python packages:
     pip install pandas textblob streamlit sqlalchemy psycopg2-binary requests   plotly
 
-2. Files Created & Purpose
-
-news_fetcher.py
+### 2. Files Created & Purpose
+   
+####  `news_fetcher.py`
 
 This script fetches top news headlines from NewsAPI, analyzes sentiment using TextBlob, uploads raw data to S3, and stores the processed results into a PostgreSQL (RDS) table for dashboard visualization.
-It automates the full data pipeline for news sentiment analysis and storage..
+It automates the full data pipeline for news sentiment analysis and storage..  
+
+```python
 import requests
 from textblob import TextBlob
 import pandas as pd
@@ -79,9 +85,14 @@ if response.status_code == 200:
     print(df.head())
 else:
     print("❌ Failed to fetch news:", response.status_code, response.text)
-app.py
-This Streamlit app connects to an AWS RDS PostgreSQL database to display news sentiment data in interactive views.
-It allows users to filter news by date, view sentiment trends, and explore analytics like sentiment distribution and word clouds.
+  ```
+
+#### `app.py`
+
+This Streamlit app connects to an AWS RDS PostgreSQL database to display news sentiment data in interactive views.  
+It allows users to filter news by date, view sentiment trends, and explore analytics like sentiment distribution and word clouds.  
+
+```python
 import streamlit as st
 import pandas as pd
 from sqlalchemy import create_engine
@@ -183,54 +194,64 @@ elif view_option == "Analytics":
     ax.imshow(wordcloud, interpolation='bilinear')
     ax.axis("off")
     st.pyplot(fig_wc)
+```
 
 
-Dockerfile .  
+#### `Dockerfile .`  
 
-Containerizes news fetcher.
+Containerizes news fetcher.  
+
+```python
 FROM python:3.9
 WORKDIR /app
 COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.enableCORS=false"]
+```
 
-fetcher.Dockerfile  
-
+#### `fetcher.Dockerfile`  
+```python
 FROM python:3.9
 WORKDIR /app
 COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 CMD ["python", "news_fetcher.py"]
+```
 
-backup.sql
+#### `backup.sql`
 
- Used for backing up your RDS PostgreSQL schema.
+ Used for backing up your RDS PostgreSQL schema.  
 
-sentiment.py
+#### `sentiment.py`
 
-This line computes the sentiment polarity score of the text using TextBlob, indicating how positive or negative it is.
+This line computes the sentiment polarity score of the text using TextBlob, indicating how positive or negative it is.    
+```python
 from textblob import TextBlob
 text="The new AI tool is Amazing!"
 print(TextBlob(text).sentiment.polarity)
+```
 
-test_rds_connecton.py
+#### `test_rds_connecton.py`
 
-This code tests the connection to an AWS RDS PostgreSQL database and prints the database version to confirm successful connectivity.
+This code tests the connection to an AWS RDS PostgreSQL database and prints the database version to confirm successful connectivity.    
+```python
 from sqlalchemy import create_engine,text
 aws_engine = create_engine(
     "postgresql://postgres:newsroot@news-sentiment-db.ctge6ym20lr7.ap-south-1.rds.amazonaws.com:5432/postgres"
 )
-
 with aws_engine.connect() as conn:
     result = conn.execute(text("SELECT version();"))
     print(result.fetchone())
+```
 
-3. Docker & Local Database Setup
+### 3. Docker & Local Database Setup
 
 Run local PostgreSQL:
 
 docker run --name news-db -e POSTGRES_PASSWORD=1234 -p 5432:5432 -d postgres
+
 Create table:
+
 CREATE TABLE news_analytics (
     Id SERIAL PRIMARY KEY,
     author VARCHAR(50),
@@ -244,90 +265,111 @@ docker build -f Dockerfile.dashboard -t news-dashboard .
 docker run -p 8501:8501 news-dashboard
 Access in browser: http://localhost:8501
 
-🚀 AWS Deployment
+## 🚀 AWS Deployment
 
-   ECR
-•	aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin <ecr-uri>
-•	docker build -f fetcher.dockerfile -t news-fetcher .
-•	docker tag news-fetcher:latest <ecr-uri>/news-fetcher:latest
-•	docker push <ecr-uri>/news-fetcher:latest
+####  ECR
+•	aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin <ecr-uri>  
+•	docker build -f fetcher.dockerfile -t news-fetcher .  
+•	docker tag news-fetcher:latest <ecr-uri>/news-fetcher:latest  
+•	docker push <ecr-uri>/news-fetcher:latest  
+
 ![alt text](image-4.png)
  
-   RDS
-•	Create PostgreSQL RDS instance
-•	Open port 5432 in security group
-•	Create table: news_analytics
+ #### RDS
+ 
+•	Create PostgreSQL RDS instance  
+•	Open port 5432 in security group  
+•	Create table: news_analytics  
+
 ![alt text](image-5.png)
  
-   S3
+ #### S3
 
-•	Create an S3 bucket (e.g., news-raw-data)
-•	news_fetcher.py uploads raw API responses as .json
-•	Used for logging or backup
-![alt text](image-6.png)
-![alt text](image-7.png)
+•	Create an S3 bucket (e.g., news-raw-data)   
+•	news_fetcher.py uploads raw API responses as .json  
+•	Used for logging or backup  
+
+![alt text](image-6.png)  
+![alt text](image-7.png)  
  
-   Lambda & EventBridge
+#### Lambda & EventBridge  
 
-•	Use Lambda to trigger ECS Task for fetcher script
-•	EventBridge triggers Lambda every 5 minutes
-![alt text](image-8.png)
+•	Use Lambda to trigger ECS Task for fetcher script  
+•	EventBridge triggers Lambda every 5 minutes  
+
+![alt text](image-8.png)  
  
-   ECS
+#### ECS
 
-•	One Task for dashboard (always running)
-•	Another Task triggered by Lambda (news_fetcher.py)
-•	ALB routes traffic to dashboard
-![alt text](image-10.png)
+•	One Task for dashboard (always running)  
+•	Another Task triggered by Lambda (news_fetcher.py)  
+•	ALB routes traffic to dashboard  
 
-   CloudWatch
+![alt text](image-10.png)  
 
-•	Automatically captures logs from:
-o	Lambda functions
-o	ECS fetcher and dashboard containers
-o	EventBridge triggers
-•	Used for debugging errors and monitoring task health
+#### CloudWatch  
+
+• Automatically captures logs from:  
+      o	Lambda functions
+      o	ECS fetcher and dashboard containers
+      o	EventBridge triggers
+• Used for debugging errors and monitoring task health
+
 ![alt text](image-9.png)
+
 Log Group	Purpose
 /aws/lambda/newsSentimentFetcher	Logs from  Lambda function that triggers ECS
 /ecs/news-task	Logs from ECS Task running news_fetcher.py
 	
 
-📊 Dashboard Features
-• Filter news by date
-• Color-coded sentiment table
-• Line chart: Sentiment over time
-• Word cloud of common words
-• Bar chart: Sentiment category distribution
+## 📊 Dashboard Features 
 
-📁 Project Structure
-intern1/
-├── app.py
-├── news_fetcher.py
-├── sentiment.py
-├── Dockerfile.dashboard
-├── fetcher.dockerfile
-├── requirements.txt
-├── backup.sql
-└── README.docx
-📸 Screenshots
-▶️ Sentiment Distribution
- ![alt text](image-11.png)
-☁️ Word Cloud and Sentiment Line Chart
- ![alt text](image-2.png)
-🗞️ News Sentiment Table View
- ![alt text](image-1.png)
-📈 Trend & Timestamp Summary
-![alt text](image.png)
+• Filter news by date   
+• Color-coded sentiment table    
+• Line chart: Sentiment over time  
+• Word cloud of common words  
+• Bar chart: Sentiment category distribution  
 
-✅ Next Improvements
-• Add more visual analytics (trends, keywords)
-• Auto backup data to S3
-• Export as CSV
-• Use CloudFormation / Terraform for infrastructure setup
-🏁 Conclusion
-This project demonstrates:
-• Automated News Collection
-• Real-Time Sentiment Analysis
-• Interactive Analytics
-• Cloud-native & Scalable Deployment
+## 📁 Project Structure
+intern1/  
+├── app.py  
+├── news_fetcher.py  
+├── sentiment.py  
+├── Dockerfile.dashboard  
+├── fetcher.dockerfile  
+├── requirements.txt  
+├── backup.sql  
+└── README.docx  
+## 📸 Screenshots  
+#### ▶️ Sentiment Distribution  
+
+ ![alt text](image-11.png) 
+ 
+#### ☁️ Word Cloud and Sentiment Line Chart  
+
+ ![alt text](image-2.png)  
+ 
+#### 🗞️ News Sentiment Table View  
+
+ ![alt text](image-1.png)  
+ 
+#### 📈 Trend & Timestamp Summary  
+
+![alt text](image.png)  
+
+
+## ✅ Next Improvements  
+
+• Add more visual analytics (trends, keywords)  
+• Auto backup data to S3  
+• Export as CSV  
+• Use CloudFormation / Terraform for infrastructure setup  
+
+## 🏁 Conclusion   
+
+This project demonstrates:  
+• Automated News Collection    
+• Real-Time Sentiment Analysis  
+• Interactive Analytics  
+• Cloud-native & Scalable Deployment  
+
