@@ -29,6 +29,7 @@ Dashboard: ECS (Streamlit) ← ALB ← app.py ← PostgreSQL
 ## 🛠️ Step-by-Step Implementation Guide  
 
 ### 1. Local Prototype
+
     Tools Installation:
     • Python 3.9+
     • Docker Desktop (with WSL2 on Windows)
@@ -268,39 +269,45 @@ Access in browser: http://localhost:8501
 
 ## 🚀 AWS Deployment
 
-   ECR
-•	aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin <ecr-uri>
-•	docker build -f fetcher.dockerfile -t news-fetcher .
-•	docker tag news-fetcher:latest <ecr-uri>/news-fetcher:latest
-•	docker push <ecr-uri>/news-fetcher:latest
-![alt text](image-4.png)
- 
-   RDS
-•	Create PostgreSQL RDS instance
-•	Open port 5432 in security group
-•	Create table: news_analytics
-![alt text](image-5.png)
- 
- #### S3
+   ECR  
+•	aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin <ecr-uri>  
+•	docker build -f fetcher.dockerfile -t news-fetcher .  
+•	docker tag news-fetcher:latest <ecr-uri>/news-fetcher:latest  
+•	docker push <ecr-uri>/news-fetcher:latest 
 
-•	Create an S3 bucket (e.g., news-raw-data)
-•	news_fetcher.py uploads raw API responses as .json
-•	Used for logging or backup
-![alt text](image-6.png)
-![alt text](image-7.png)
+![alt text](images/image-4.png)  
  
-#### Lambda & EventBridge  
+   RDS  
+•	Create PostgreSQL RDS instance  
+•	Open port 5432 in security group  
+•	Create table: news_analytics  
 
-•	Use Lambda to trigger ECS Task for fetcher script
-•	EventBridge triggers Lambda every 5 minutes
-![alt text](image-8.png)
+![alt text](images/image-5.png)  
+ 
+ #### S3  
+
+•	Create an S3 bucket (e.g., news-raw-data)  
+•	news_fetcher.py uploads raw API responses as .json  
+•	Used for logging or backup  
+
+![alt text](images/image-6.png)  
+
+![alt text](images/image-7.png)  
+ 
+#### Lambda & EventBridge    
+
+•	Use Lambda to trigger ECS Task for fetcher script  
+•	EventBridge triggers Lambda every 5 minutes    
+
+![alt text](images/image-8.png)  
  
 #### ECS
 
-•	One Task for dashboard (always running)
-•	Another Task triggered by Lambda (news_fetcher.py)
-•	ALB routes traffic to dashboard
-![alt text](image-10.png)
+•	One Task for dashboard (always running)  
+•	Another Task triggered by Lambda (news_fetcher.py)  
+•	ALB routes traffic to dashboard  
+
+![alt text](images/image-10.png)
 
 #### CloudWatch  
 
@@ -309,10 +316,14 @@ o	Lambda functions
 o	ECS fetcher and dashboard containers
 o	EventBridge triggers
 •	Used for debugging errors and monitoring task health
-![alt text](image-9.png)
+
+![alt text](images/image-9.png)  
+
 Log Group	Purpose
-/aws/lambda/newsSentimentFetcher	Logs from  Lambda function that triggers ECS
-/ecs/news-task	Logs from ECS Task running news_fetcher.py
+
+/aws/lambda/newsSentimentFetcher	Logs from  Lambda function that triggers ECS  
+
+/ecs/news-task	Logs from ECS Task running news_fetcher.py  
 	
 
 ## 📊 Dashboard Features 
@@ -323,24 +334,33 @@ Log Group	Purpose
 • Word cloud of common words  
 • Bar chart: Sentiment category distribution  
 
-📁 Project Structure
-intern1/
-├── app.py
-├── news_fetcher.py
-├── sentiment.py
-├── Dockerfile.dashboard
-├── fetcher.dockerfile
-├── requirements.txt
-├── backup.sql
-└── README.docx
-📸 Screenshots
-▶️ Sentiment Distribution
+## 📁 Project Structure
+intern1/  
+├── app.py  
+├── news_fetcher.py  
+├── sentiment.py  
+├── Dockerfile.dashboard  
+├── fetcher.dockerfile  
+├── requirements.txt  
+├── backup.sql  
+└── README.  
+## 📸 Screenshots
+
+### ▶️ Sentiment Distribution  
+
  ![alt text](images/image-11.png)
-☁️ Word Cloud and Sentiment Line Chart
- ![alt text](images/image-2.png)
-🗞️ News Sentiment Table View
- ![alt text](images/image-1.png)
-📈 Trend & Timestamp Summary
+ 
+### ☁️ Word Cloud and Sentiment Line Chart  
+
+ ![alt text](images/image-2.png)  
+  
+### 🗞️ News Sentiment Table View  
+
+ ![alt text](images/image-1.png)  
+ 
+### 📈 Trend & Timestamp Summary  
+
+
 ![alt text](images/image.png)
 
 
