@@ -1,4 +1,4 @@
-# NEWS SENTIMENT ANALYSIS DASHBOAR
+# NEWS SENTIMENT ANALYSIS DASHBOARD  
 
 This is a full-stack, production-ready dashboard that automatically fetches news headlines, analyzes sentiment using NLP, and displays real-time insights through an interactive Streamlit web interface — all containerized and deployed on AWS.
 
