@@ -339,7 +339,7 @@ intern1/
 ├── app.py  
 ├── news_fetcher.py  
 ├── sentiment.py  
-├── Dockerfile.dashboard  
+├── Dockerfile.  
 ├── fetcher.dockerfile  
 ├── requirements.txt  
 ├── backup.sql  
