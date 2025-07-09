@@ -7,7 +7,7 @@
     "vc >=14.1,<15.0a0",
     "vs2015_runtime >=14.16.27012,<15.0a0"
   ],
-  "extracted_package_dir": "C:\\ProgramData\\anaconda3\\pkgs\\zlib-1.2.13-h8cc25b3_1",
+  "extracted_package_dir": "C:\\Users\\Nami\\anaconda3\\pkgs\\zlib-1.2.13-h8cc25b3_1",
   "files": [
     "Library/bin/zlib.dll",
     "Library/include/zconf.h",
@@ -18,17 +18,18 @@
     "Library/lib/zlib.lib",
     "Library/lib/zlibstatic.lib",
     "Library/share/man/man3/zlib.3",
-    "zlib.dll"
+    "zlib.dll",
+    ".nonadmin"
   ],
   "fn": "zlib-1.2.13-h8cc25b3_1.conda",
   "license": "Zlib",
   "link": {
-    "source": "C:\\ProgramData\\anaconda3\\pkgs\\zlib-1.2.13-h8cc25b3_1",
+    "source": "C:\\Users\\Nami\\anaconda3\\pkgs\\zlib-1.2.13-h8cc25b3_1",
     "type": 1
   },
   "md5": "1f7ea85632611b25599e4cddf5b51d7d",
   "name": "zlib",
-  "package_tarball_full_path": "C:\\ProgramData\\anaconda3\\pkgs\\zlib-1.2.13-h8cc25b3_1.conda",
+  "package_tarball_full_path": "C:\\Users\\Nami\\anaconda3\\pkgs\\zlib-1.2.13-h8cc25b3_1.conda",
   "paths_data": {
     "paths": [
       {
@@ -58,7 +59,7 @@
         "path_type": "hardlink",
         "prefix_placeholder": "C:/b/abs_72khlqt_kh/croot/zlib_1714514696139/_h_env",
         "sha256": "98c186a7407d4aa5524b6755406948c1ad9be2bf6a525dd8552df97e1901498d",
-        "sha256_in_prefix": "3965ecf84f976f8caf0512b10e6e22a8d000e8704a46c1e1b76ab6d0d0a2952a",
+        "sha256_in_prefix": "45634e60ea784ca9ecef727652ba04b1ba399177a159e95caf38fd55505b11ea",
         "size_in_bytes": 520
       },
       {

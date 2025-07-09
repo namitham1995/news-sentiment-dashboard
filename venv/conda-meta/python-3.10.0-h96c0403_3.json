@@ -4,19 +4,19 @@
   "channel": "https://repo.anaconda.com/pkgs/main/win-64",
   "constrains": [],
   "depends": [
-    "pip",
+    "bzip2 >=1.0.8,<2.0a0",
+    "libffi >=3.4,<4.0a0",
+    "openssl >=1.1.1l,<1.1.2a",
+    "sqlite >=3.36.0,<4.0a0",
+    "tk >=8.6.11,<8.7.0a0",
     "tzdata",
     "vc >=14.1,<15.0a0",
     "vs2015_runtime >=14.16.27012,<15.0a0",
-    "zlib >=1.2.11,<1.3.0a0",
-    "bzip2 >=1.0.8,<2.0a0",
-    "libffi >=3.4,<4.0a0",
     "xz >=5.2.5,<6.0a0",
-    "openssl >=1.1.1l,<1.1.2a",
-    "sqlite >=3.36.0,<4.0a0",
-    "tk >=8.6.11,<8.7.0a0"
+    "zlib >=1.2.11,<1.3.0a0",
+    "pip"
   ],
-  "extracted_package_dir": "C:\\Users\\NAMI\\.conda\\pkgs\\python-3.10.0-h96c0403_3",
+  "extracted_package_dir": "C:\\Users\\Nami\\anaconda3\\pkgs\\python-3.10.0-h96c0403_3",
   "files": [
     "DLLs/_asyncio.pyd",
     "DLLs/_bz2.pyd",
@@ -2392,17 +2392,18 @@
     "pythonw.exe",
     "pythonw.pdb",
     "venvlauncher.exe",
-    "venvwlauncher.exe"
+    "venvwlauncher.exe",
+    ".nonadmin"
   ],
   "fn": "python-3.10.0-h96c0403_3.tar.bz2",
   "license": "Python-2.0",
   "link": {
-    "source": "C:\\Users\\NAMI\\.conda\\pkgs\\python-3.10.0-h96c0403_3",
+    "source": "C:\\Users\\Nami\\anaconda3\\pkgs\\python-3.10.0-h96c0403_3",
     "type": 1
   },
   "md5": "b786576644c7a765c98e169fd84e4ff0",
   "name": "python",
-  "package_tarball_full_path": "C:\\Users\\NAMI\\.conda\\pkgs\\python-3.10.0-h96c0403_3.tar.bz2",
+  "package_tarball_full_path": "C:\\Users\\Nami\\anaconda3\\pkgs\\python-3.10.0-h96c0403_3.tar.bz2",
   "paths_data": {
     "paths": [
       {

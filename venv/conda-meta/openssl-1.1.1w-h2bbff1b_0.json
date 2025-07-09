@@ -8,7 +8,7 @@
     "vc >=14.1,<15.0a0",
     "vs2015_runtime >=14.16.27012,<15.0a0"
   ],
-  "extracted_package_dir": "C:\\Users\\NAMI\\.conda\\pkgs\\openssl-1.1.1w-h2bbff1b_0",
+  "extracted_package_dir": "C:\\Users\\Nami\\anaconda3\\pkgs\\openssl-1.1.1w-h2bbff1b_0",
   "files": [
     "Library/bin/c_rehash.pl",
     "Library/bin/libcrypto-1_1-x64.dll",
@@ -135,17 +135,18 @@
     "Library/ssl/misc/CA.pl",
     "Library/ssl/misc/tsget.pl",
     "Library/ssl/openssl.cnf",
-    "Library/ssl/openssl.cnf.dist"
+    "Library/ssl/openssl.cnf.dist",
+    ".nonadmin"
   ],
   "fn": "openssl-1.1.1w-h2bbff1b_0.conda",
   "license": "OpenSSL",
   "link": {
-    "source": "C:\\Users\\NAMI\\.conda\\pkgs\\openssl-1.1.1w-h2bbff1b_0",
+    "source": "C:\\Users\\Nami\\anaconda3\\pkgs\\openssl-1.1.1w-h2bbff1b_0",
     "type": 1
   },
   "md5": "e2e24f1ea50292279c7ea3fe32924095",
   "name": "openssl",
-  "package_tarball_full_path": "C:\\Users\\NAMI\\.conda\\pkgs\\openssl-1.1.1w-h2bbff1b_0.conda",
+  "package_tarball_full_path": "C:\\Users\\Nami\\anaconda3\\pkgs\\openssl-1.1.1w-h2bbff1b_0.conda",
   "paths_data": {
     "paths": [
       {
@@ -154,7 +155,7 @@
         "path_type": "hardlink",
         "prefix_placeholder": "C:\\\\b\\\\abs_12_dc77dam\\\\croot\\\\openssl_1694464964882\\\\_h_env",
         "sha256": "cf3efc4498dd9e89badbc03fb03c4a2a6b64e1eeabebc8f1cca6307d63267ebb",
-        "sha256_in_prefix": "c5e9f2618a59a87b022eef385bd5b58185ca6b334ace395ea632fc7282cc6057",
+        "sha256_in_prefix": "e9ec54e9090391b6b643a44c27137f2de5428c2df12a2dafb27464c91346db2e",
         "size_in_bytes": 7104
       },
       {

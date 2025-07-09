@@ -6,7 +6,7 @@
   "depends": [
     "python >=3.10,<3.11.0a0"
   ],
-  "extracted_package_dir": "C:\\Users\\NAMI\\.conda\\pkgs\\setuptools-78.1.1-py310haa95532_0",
+  "extracted_package_dir": "C:\\Users\\Nami\\anaconda3\\pkgs\\setuptools-78.1.1-py310haa95532_0",
   "files": [
     "Lib/site-packages/_distutils_hack/__init__.py",
     "Lib/site-packages/_distutils_hack/__pycache__/__init__.cpython-310.pyc",
@@ -878,17 +878,18 @@
     "Lib/site-packages/setuptools/version.py",
     "Lib/site-packages/setuptools/warnings.py",
     "Lib/site-packages/setuptools/wheel.py",
-    "Lib/site-packages/setuptools/windows_support.py"
+    "Lib/site-packages/setuptools/windows_support.py",
+    ".nonadmin"
   ],
   "fn": "setuptools-78.1.1-py310haa95532_0.conda",
   "license": "MIT",
   "link": {
-    "source": "C:\\Users\\NAMI\\.conda\\pkgs\\setuptools-78.1.1-py310haa95532_0",
+    "source": "C:\\Users\\Nami\\anaconda3\\pkgs\\setuptools-78.1.1-py310haa95532_0",
     "type": 1
   },
   "md5": "954300d358ac0fde8822083634117f92",
   "name": "setuptools",
-  "package_tarball_full_path": "C:\\Users\\NAMI\\.conda\\pkgs\\setuptools-78.1.1-py310haa95532_0.conda",
+  "package_tarball_full_path": "C:\\Users\\Nami\\anaconda3\\pkgs\\setuptools-78.1.1-py310haa95532_0.conda",
   "paths_data": {
     "paths": [
       {

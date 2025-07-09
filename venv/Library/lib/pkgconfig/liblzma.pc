@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: 0BSD
 # Author: Lasse Collin
 
-prefix=C:/Users/NAMI/Desktop/intern1/venv/Library
+prefix=C:/Users/Nami/Desktop/PROJECT 1/intern1/venv/Library
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

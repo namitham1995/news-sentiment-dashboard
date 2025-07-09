@@ -7,7 +7,7 @@
     "vc >=14.2,<15.0a0",
     "vs2015_runtime >=14.29.30133,<15.0a0"
   ],
-  "extracted_package_dir": "C:\\Users\\NAMI\\.conda\\pkgs\\xz-5.6.4-h4754444_1",
+  "extracted_package_dir": "C:\\Users\\Nami\\anaconda3\\pkgs\\xz-5.6.4-h4754444_1",
   "files": [
     "Library/bin/liblzma.dll",
     "Library/bin/lzmadec.exe",
@@ -52,17 +52,18 @@
     "Library/share/doc/xz/faq.txt",
     "Library/share/doc/xz/history.txt",
     "Library/share/doc/xz/lzma-file-format.txt",
-    "Library/share/doc/xz/xz-file-format.txt"
+    "Library/share/doc/xz/xz-file-format.txt",
+    ".nonadmin"
   ],
   "fn": "xz-5.6.4-h4754444_1.conda",
   "license": "LGPL-2.1-or-later and GPL-2.0-or-later and 0BSD",
   "link": {
-    "source": "C:\\Users\\NAMI\\.conda\\pkgs\\xz-5.6.4-h4754444_1",
+    "source": "C:\\Users\\Nami\\anaconda3\\pkgs\\xz-5.6.4-h4754444_1",
     "type": 1
   },
   "md5": "6036999a3a2c7a3e3739d6b9351fcb0b",
   "name": "xz",
-  "package_tarball_full_path": "C:\\Users\\NAMI\\.conda\\pkgs\\xz-5.6.4-h4754444_1.conda",
+  "package_tarball_full_path": "C:\\Users\\Nami\\anaconda3\\pkgs\\xz-5.6.4-h4754444_1.conda",
   "paths_data": {
     "paths": [
       {
@@ -246,7 +247,7 @@
         "path_type": "hardlink",
         "prefix_placeholder": "C:/b/abs_127uq9r7f9/croot/xz_1739468293592/_h_env",
         "sha256": "dbe3494f7db3697dfd6167eb9f44b211b58df9613a8f6b2670a1d6ba78f0593b",
-        "sha256_in_prefix": "554b10ded15e615da217fe58f25b3629cf701f3143ea5b3bcc278e36e4384234",
+        "sha256_in_prefix": "ba3c71d1fd56c84cf42ac7f88e497138ffda06ee3b968dcfc59f5f5382ede41a",
         "size_in_bytes": 426
       },
       {

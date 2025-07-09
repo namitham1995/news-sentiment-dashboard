@@ -4,11 +4,11 @@
   "channel": "https://repo.anaconda.com/pkgs/main/noarch",
   "constrains": [],
   "depends": [
+    "python >=3.9,<3.14.0a0",
     "setuptools",
-    "wheel",
-    "python >=3.9,<3.14.0a0"
+    "wheel"
   ],
-  "extracted_package_dir": "C:\\Users\\NAMI\\.conda\\pkgs\\pip-25.1-pyhc872135_2",
+  "extracted_package_dir": "C:\\Users\\Nami\\anaconda3\\pkgs\\pip-25.1-pyhc872135_2",
   "files": [
     "Lib/site-packages/pip-25.1.dist-info/INSTALLER",
     "Lib/site-packages/pip-25.1.dist-info/METADATA",
@@ -453,6 +453,7 @@
     "Lib/site-packages/pip/_vendor/urllib3/util/wait.py",
     "Lib/site-packages/pip/_vendor/vendor.txt",
     "Lib/site-packages/pip/py.typed",
+    ".nonadmin",
     "Lib/site-packages/pip/__pycache__/__init__.cpython-310.pyc",
     "Lib/site-packages/pip/__pycache__/__main__.cpython-310.pyc",
     "Lib/site-packages/pip/__pycache__/__pip-runner__.cpython-310.pyc",
@@ -872,13 +873,13 @@
   "fn": "pip-25.1-pyhc872135_2.conda",
   "license": "MIT",
   "link": {
-    "source": "C:\\Users\\NAMI\\.conda\\pkgs\\pip-25.1-pyhc872135_2",
+    "source": "C:\\Users\\Nami\\anaconda3\\pkgs\\pip-25.1-pyhc872135_2",
     "type": 1
   },
   "md5": "2778327d2a700153fefe0e69438b18e1",
   "name": "pip",
   "noarch": "python",
-  "package_tarball_full_path": "C:\\Users\\NAMI\\.conda\\pkgs\\pip-25.1-pyhc872135_2.conda",
+  "package_tarball_full_path": "C:\\Users\\Nami\\anaconda3\\pkgs\\pip-25.1-pyhc872135_2.conda",
   "package_type": "noarch_python",
   "paths_data": {
     "paths": [

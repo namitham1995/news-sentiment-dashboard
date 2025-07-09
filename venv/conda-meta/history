@@ -1,5 +1,5 @@
-==> 2025-06-06 10:41:41 <==
-# cmd: C:\ProgramData\anaconda3\Scripts\conda-script.py create -p venv python==3.10 -y
+==> 2025-06-19 11:37:03 <==
+# cmd: C:\Users\Nami\anaconda3\Scripts\conda-script.py create -p venv python==3.10 -y
 # conda version: 24.9.2
 +defaults/noarch::pip-25.1-pyhc872135_2
 +defaults/noarch::tzdata-2025b-h04d1e81_0
